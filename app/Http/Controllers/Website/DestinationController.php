@@ -21,6 +21,8 @@ class DestinationController extends Controller
             'value'=>$this->tour->getByTypeTourId($idtour),
             'tour'=>$this->tour->getByTypeTourId($idtour),
             'description'=>$this->tour->getDescriptionById($idtour),
+            'img'=>$this->tour->getImgById($idtour),
+            'name'=>$this->tour->getNameById($idtour),
     	];
         return view("website.destination_tour.index",$data);
     }

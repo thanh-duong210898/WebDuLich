@@ -22,5 +22,17 @@ class Tour extends Model
         $price = tour::find($id);
         return $price->price;
     }
+    public function getImgById($id){
+        
+        $value=tour::find($id);
+        $img= $value->image;
+        return $img;
+    }
+    public function getNameById($id){
+
+        $value=tour::find($id);
+        $name= $value->name;
+        return $name;
+    }
 
 }

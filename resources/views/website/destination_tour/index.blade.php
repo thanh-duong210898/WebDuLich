@@ -12,20 +12,21 @@
     </div>
 
 <div class="destination_details_tour_info">
+
         <div class="container">
             <div class="row {{-- justify-content-center --}}">
                 <div class="col-lg-6 col-md-7">
                     <div class="destination_info">
-                        
+                        <img src="{{asset($img)}}" width="500"  height="600">
                     </div>
                 </div>
                     <div class="col-lg-6 col-md-5">
                     <div class="destination_price">
-                    <h3 class="ten_sp">Tour Du Lịch Phú Quốc 3 Ngày 2 đêm</h3>
+                    <h3 class="ten_sp">{!!$name!!}</h3>
                     <div style="margin-bottom: 20px;">
 
                     <div class="pull-left danhgiasao">
-                    <input type="range" value="5" step="0.1" id="backing5">
+                    <input type="range" value="5" step="0.1" id="backing5">s
                     <div class="rateit" style="float: left;" data-rateit-backingfld="#backing5" data-rateit-resetable="false"  data-rateit-ispreset="true"
                     data-rateit-min="0" data-rateit-max="5">
                     </div>
