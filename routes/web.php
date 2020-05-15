@@ -21,6 +21,40 @@ Route::post('admin/login', 'UserController@login')->name('postLogin');
 Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
     Route::get('admin/logout', 'UserController@logout')->name('logout');
 
+
+    Route::group(['prefix' => 'tour'], function() {
+        Route::get('/','TourController@index')->name('tour');
+        Route::get('/edit','TourController@get_edit')->name('edit-tour');
+        Route::post('/edit','TourController@post_edit')->name('postEdittour');
+        Route::get('/add','TourController@get_add')->name('get_add_tour');
+        Route::post('/add','TourController@post_add');
+        Route::get('/datatables','TourController@datatables')->name('datatables_tour');
+        Route::post('/on','TourController@on')->name('on_tour');
+        Route::post('/off','TourController@off')->name('off_tour');
+        Route::post('/delete','TourController@delete')->name('tour_delete');
+        Route::get('/description','TourController@description')->name('description-tour');
+
+        
+        
+        Route::get('/check-active-home-page', 'TourController@checkHomePage')->name('checkHomePage');
+        Route::get('/check-trending-tour', 'TourController@checkTrendingTour')->name('checkTrendingtour');
+        Route::get('/check-best-seller', 'TourController@checkBestSeller')->name('checkBestSeller');
+
+    });
+
+    Route::group(['prefix' => 'TypeOfTour'], function() {
+        Route::get('/','TypeOfTourController@index')->name('TypeOfTour');
+        Route::get('/edit','TypeOfTourController@get_edit')->name('editTypeOfTour');
+        Route::post('/edit','TypeOfTourController@post_edit')->name('postEditTypetour');;
+        Route::get('/add','TypeOfTourController@get_add')->name('get_add_TypeOfTour');
+        Route::post('/add','TypeOfTourController@post_add');
+        Route::get('/datatables','TypeOfTourController@datatables')->name('datatables_TypeOfTour');
+        Route::post('/delete','TypeOfTourController@delete')->name('TypeOfTour_delete');
+        Route::post('/off','TypeOfTourController@off')->name('tour_off');
+        Route::post('/on','TypeOfTourController@on')->name('tour_on');
+    });
+
+
     Route::group(['prefix' => 'user'], function() {
     	Route::get('/edit-profile','UserController@get_editProfile')->name('edit_profile');
     	Route::post('/edit-profile','UserController@post_editProfile');
@@ -261,6 +295,10 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::get('special','SpecialController@index')->name('website.special');
         Route::get('special/get','SpecialController@getPostByPage')->name('website.special.getPostByPage');
         Route::post('special/post-form','SpecialController@postForm')->name('website.special.postForm');
+
+         Route::get('type/{id}','TypeController@index')->name('website-type');
+         Route::get('destination/{id}','DestinationController@index')->name('website.destination');
+
 
     });
     

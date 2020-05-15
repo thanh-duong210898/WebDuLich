@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('title','Product '.$name)
 @section('style')
+
 <link href="vendor/summernote/summernote-lite.css" rel="stylesheet">
 <style>
       .panel-heading{

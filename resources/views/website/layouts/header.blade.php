@@ -1,49 +1,78 @@
-@php
+{{-- @php
 $postType = new \App\PostType;
 $getPostType = $postType->getAll();
 $productType = new \App\Category;
 $getProductType = $productType->getAll();
 $logo = \App\Logo::first();
 // echo $getProductType;die;
-@endphp
+@endphp --}}
 
-<nav id="ro-main-nav" class="ro-main-nav-style-1" style="padding-top: 0px;">
-    <div class="container">
-        <div class="ro-brand">
-            <a href="">
-                <img style="margin-bottom: 0px;height: 90px;" src="{{loadImage($logo->image)}}" alt="{{$logo->title}}">
-            </a>
 
+<header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="{{asset('website/img/logo.png')}}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a class="active" href="index.html">home</a></li>
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a class="" href="travel_destination.html">Destination</a></l/li>
+                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                        <li><a href="destination_details.html">Destinations details</a></li>
+                                                        <li><a href="elements.html">elements</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">blog</a></li>
+                                                    <li><a href="single-blog.html">single-blog</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 d-none d-lg-block">
+                                <div class="social_wrap d-flex align-items-center justify-content-end">
+                                    <div class="number">
+                                        <p> <i class="fa fa-phone"></i> 10(256)-928 256</p>
+                                    </div>
+                                    <div class="social_links d-none d-xl-block">
+                                        <ul>
+                                            <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
+                                            <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
+                                            <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+                                            <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="seach_icon">
+                                <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
-            <ul class="ro-nav-content text-center">
-                <li class="visible-xs"><a href="index.html"><img src="{{ asset('website/assets/images/aqua-brand3.svg') }}" alt="Aqua spa"></a></li>
-                <li><a href="{{route('website.home')}}">HOME</a>
+    </header>
 
-                </li>
-
-                <li><a>SHOP</a>
-                    <ul class="ro-sub-nav">
-
-                        @foreach ($getProductType as $element)
-                        <li><a href="{{ route('website.shop',$element->slug) }}">{{$element->name}}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
-                <li><a>BLOG</a>
-                    <ul class="ro-sub-nav">
-                        <li><a href="{{ route('blog.getBySlug','new') }}">New</a></li>
-                        @foreach ($getPostType as $element)
-                        <li><a href="{{ route('blog.getBySlug',$element->slug) }}">{{$element->title}}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
-                <li><a href="{{ route('website.special') }}">SPECIAL</a></li>
-                <li><a href="{{ route('website.finacing') }}">FINANCING</a></li>
-            
-                <li><a href="{{ route('website.contact') }}">CONTACT</a></li>
-            </ul>
-        <div id="ro-hamburger" class="ro-hamburger visible-xs pull-right"><span></span></div>
-        <div class="clearfix"></div>
-        <div class="ro-hr ro-full"></div>
-    </div>
-</nav>

@@ -10,6 +10,9 @@ use App\HomeService;
 use App\OurTeam;
 use App\Title;
 use App\Banner;
+use App\TypeTour;
+use App\Tour;
+
 
 class HomeController extends Controller
 {
@@ -26,6 +29,9 @@ class HomeController extends Controller
         $this->ourTeam = new OurTeam;
         $this->title = new Title;
         $this->banner = new Banner;
+        $this->typetour = new TypeTour;
+        $this->tour= new Tour;
+
 	}
 
     public function index(){
@@ -36,6 +42,8 @@ class HomeController extends Controller
             'ourTeam' => $this->ourTeam->getByNumber(2),
             'title' => $this->title->find(1) ?? null,
             'banner' => $this->banner->find(1) ?? null,
+            'typetour' =>$this->typetour->getAll(),
+            'tour'=>$this->tour->getByTypeTourId(1),
     	];
         return view("website.home.index",$data);
     }

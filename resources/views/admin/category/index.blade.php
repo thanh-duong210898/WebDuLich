@@ -72,6 +72,7 @@
 
       });       
 
+
        $(document).on('click','.delete',function(e){
           e.preventDefault();
           var id = $(this).attr('data-id');
@@ -92,6 +93,7 @@
           });
           } else return false;
         });
+
 
     });
   </script>
