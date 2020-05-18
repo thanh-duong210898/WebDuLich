@@ -1,6 +1,4 @@
 
-
-
 @extends("website.layouts.master")
 @section("content")
 <div class="slider_area">

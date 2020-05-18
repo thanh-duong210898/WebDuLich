@@ -1,4 +1,6 @@
-<!doctype html>
+
+<!DOCTYPE html>
+
 <html class="no-js" lang="zxx">
 
 <head>
@@ -97,3 +99,4 @@
 </body>
 
 </html>
+

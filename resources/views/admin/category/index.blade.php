@@ -72,26 +72,28 @@
 
       });       
 
-       // $(document).on('click','.delete',function(e){
-       //    e.preventDefault();
-       //    var id = $(this).attr('data-id');
-       //    if(confirm("Are you sure delete this data?")){
-       //    $.ajax({
-       //      url:'{{ route('category_delete') }}',
-       //      method:'post',
-       //      data:{_token:'{{csrf_token()}}',id:id},
-       //      success:function(data){
-       //        if(data){
-       //          toastr.success(data,'Success !!');
-       //          table.draw();
-       //        }
-       //      },
-       //      error:function(){
-       //      toastr.error('Error delete','Error !!');
-       //      },
-       //    });
-       //    } else return false;
-       //  });
+
+       $(document).on('click','.delete',function(e){
+          e.preventDefault();
+          var id = $(this).attr('data-id');
+          if(confirm("Are you sure delete this data?")){
+          $.ajax({
+            url:'{{ route('category_delete') }}',
+            method:'post',
+            data:{_token:'{{csrf_token()}}',id:id},
+            success:function(data){
+              if(data){
+                toastr.success(data,'Success !!');
+                table.draw();
+              }
+            },
+            error:function(){
+            toastr.error('Error delete','Error !!');
+            },
+          });
+          } else return false;
+        });
+
 
     });
   </script>

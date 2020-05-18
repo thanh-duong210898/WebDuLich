@@ -13,6 +13,7 @@ use App\Banner;
 use App\TypeTour;
 use App\Tour;
 
+
 class HomeController extends Controller
 {
 
@@ -30,6 +31,7 @@ class HomeController extends Controller
         $this->banner = new Banner;
         $this->typetour = new TypeTour;
         $this->tour= new Tour;
+
 	}
 
     public function index(){

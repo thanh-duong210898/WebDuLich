@@ -28,7 +28,9 @@ class ProductController extends Controller
         
         return Datatables::of($product)
         ->addColumn('img',function($product){
-            return "<img style='height: 8em;' src='".loadImage($product->img)."'  />";
+
+            return "<img style='height: 8em;' src='".loadImage($product->image)."'  />";
+
         })
         ->addColumn('action',function($product){
             return '<a href="#" data-id='.$product->id.' class="btn btn-success btn-sm edit">

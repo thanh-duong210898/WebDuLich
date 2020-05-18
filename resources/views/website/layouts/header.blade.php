@@ -1,11 +1,12 @@
-@php
+{{-- @php
 $postType = new \App\PostType;
 $getPostType = $postType->getAll();
 $productType = new \App\Category;
 $getProductType = $productType->getAll();
 $logo = \App\Logo::first();
 // echo $getProductType;die;
-@endphp
+@endphp --}}
+
 
 <header>
         <div class="header-area ">
@@ -74,3 +75,4 @@ $logo = \App\Logo::first();
             </div>
         </div>
     </header>
+

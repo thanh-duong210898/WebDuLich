@@ -21,6 +21,7 @@ Route::post('admin/login', 'UserController@login')->name('postLogin');
 Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
     Route::get('admin/logout', 'UserController@logout')->name('logout');
 
+
     Route::group(['prefix' => 'tour'], function() {
         Route::get('/','TourController@index')->name('tour');
         Route::get('/edit','TourController@get_edit')->name('edit-tour');
@@ -52,6 +53,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::post('/off','TypeOfTourController@off')->name('tour_off');
         Route::post('/on','TypeOfTourController@on')->name('tour_on');
     });
+
 
     Route::group(['prefix' => 'user'], function() {
     	Route::get('/edit-profile','UserController@get_editProfile')->name('edit_profile');
@@ -293,8 +295,10 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::get('special','SpecialController@index')->name('website.special');
         Route::get('special/get','SpecialController@getPostByPage')->name('website.special.getPostByPage');
         Route::post('special/post-form','SpecialController@postForm')->name('website.special.postForm');
+
          Route::get('type/{id}','TypeController@index')->name('website-type');
          Route::get('destination/{id}','DestinationController@index')->name('website.destination');
+
 
     });
     

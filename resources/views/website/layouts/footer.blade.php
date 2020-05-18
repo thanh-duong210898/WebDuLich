@@ -1,6 +1,7 @@
-@php
+{{-- @php
 $contact = \App\Contact::first();
-@endphp
+@endphp --}}
+
 <footer class="footer">
         <div class="footer_top">
             <div class="container">
@@ -146,3 +147,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
       </div>
     </div>
   </div>
+
