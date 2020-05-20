@@ -34,5 +34,26 @@ class Tour extends Model
         $name= $value->name;
         return $name;
     }
+    public function getTourIDById($id){
+
+        $value=tour::find($id);
+        $TourID= $value->tour_id;
+        return $TourID;
+    }
+    public function getValueByID($id)
+    {
+        $value=tour::find($id);
+        return $value;
+    }
+    public function search($request)
+    {
+
+        $tour = tour::where('name','like','%'.$request->key.'%')
+                ->orwhere('price','like',$request->key)->get();
+        return $tour;
+
+        // return $this->select('tour.*')->where('name','like','%'.$request->key.'%')
+        //         ->orwhere('price','like',$request->key)->get();
+    }
 
 }

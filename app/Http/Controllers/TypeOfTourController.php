@@ -42,7 +42,7 @@ class TypeOfTourController extends Controller
     }
 
     public function get_add(){
-        $data['name'] = 'Add';
+        $data['name'] = 'Thêm';
         $data['typetour'] = TypeTour::select('id','name')->get();
 
         return view('admin.type_tour.add_or_edit',$data); 

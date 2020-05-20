@@ -88,16 +88,6 @@
                                                 <div class="col-lg-4">
                                                     <input required="" class="form-control @error('name') is-invalid @enderror" type="text" name="name" value="" placeholder="Tên" />
                                                 </div>
-                                                <label class="col-lg-2 col-form-label form-control-label">Giá</label>
-                                                <div class="col-lg-4">
-                                                    <input required="" class="form-control @error('price') is-invalid @enderror" type="number" name="price" value="" placeholder="Giá" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group row">
                                                 <label class="col-lg-2 col-form-label form-control-label">Danh mục</label>
                                                 <div class="col-lg-4">
                                                     <select class="form-control" name="type_tour" id="selectbox">
@@ -106,27 +96,60 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group row">
-                                                <label class="col-lg-2 col-form-label form-control-label">Giới thiệu</label>
-                                                <div class="col-lg-10">
-                                                    <textarea id="summernote" name="description" class="form-control" rows="4" cols="50"></textarea>
+                                                <label class="col-lg-2 col-form-label form-control-label">Mã Tour</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('tour_id') is-invalid @enderror" type="text" name="tour_id" value="" placeholder="Mã Tour" />
                                                 </div>
+                                                <label class="col-lg-2 col-form-label form-control-label">PT Di Chuyển</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('transport') is-invalid @enderror" type="text" name="transport" value="" placeholder="Phương Tiện Di Chuyển" />
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-2 col-form-label form-control-label"></label>
-                                        <div class="col-lg-9">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
-                                            <input type="submit" class="btn btn-primary" value="Lưu sản phẩm" />
-                                            <input type="hidden" value="" name="id">
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label form-control-label">Thời Gian</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('tour_date') is-invalid @enderror" type="text" name="tour_date" value="" placeholder="Thời Gian" />
+                                                </div>
+                                                <label class="col-lg-2 col-form-label form-control-label">Nơi Khởi Hành</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('place_start') is-invalid @enderror" type="text" name="place_start" value="" placeholder="Nơi Khởi Hành" />
+                                                </div>
+                                                
+                                            </div>
                                         </div>
                                     </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label form-control-label">Ngày Khởi Hành</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('date_start') is-invalid @enderror" type="text" name="date_start" value="" placeholder="Ngày Khởi Hành" />
+                                                </div>
+                                                <label class="col-lg-2 col-form-label form-control-label">Giá</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('price') is-invalid @enderror" type="number" name="price" value="" placeholder="Giá" />
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                    
                                 </div>
                                 <div class="col-lg-4 pull-lg-8 text-xs-center">
                                     <img style="" src="" class="m-x-auto img-fluid " alt="avatar" />
@@ -136,6 +159,31 @@
                                         <input accept="image/*" type="file" id="file" name="image" class="custom-file-input">
                                     </label>
                                 </div>
+                                <div> 
+                                        <div class="col-lg-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label form-control-label">Giới thiệu</label>
+                                                <div class="col-lg-12">
+                                                    <textarea id="summernote" name="description" class="form-control" rows="4" cols="50"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                    
+                                <div class="row">
+                                <div class="col-lg-12  personal-info">
+                                    
+                                        <label class="col-lg-2 col-form-label form-control-label"></label>
+                                        <div class="">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+                                            <input type="submit" class="btn btn-primary" value="Lưu sản phẩm" />
+                                            <input type="hidden" value="" name="id">
+                                        </div>
+                                    
+                                </div>
+                                </div>
+
+
                             </div>
                         </form>
                     </div>
@@ -145,8 +193,121 @@
     </div>
 </div>
 
+<div id="ShowModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="container-fluid">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Sản phẩm</h6>
+                    </div>
+                    <div class="card-body">
+                        <form role="form" id="editForm" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-lg-8 push-lg-4 personal-info">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label form-control-label">Tên</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('name') is-invalid @enderror" type="text" name="name" value="" placeholder="Tên" disabled/>
+                                                </div>
+                                                <label class="col-lg-2 col-form-label form-control-label">Mã Tour</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('tour_id') is-invalid @enderror" type="text" name="tour_id" value="" placeholder="Mã Tour" disabled/>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
 
-<div id="editModal1" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label form-control-label">Nơi Khởi Hành</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('place_start') is-invalid @enderror" type="text" name="place_start" value="" placeholder="Nơi Khởi Hành" disabled/>
+                                                </div>
+                                                <label class="col-lg-2 col-form-label form-control-label">PT Di Chuyển</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('transport') is-invalid @enderror" type="text" name="transport" value="" placeholder="Phương Tiện Di Chuyển" disabled/>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label form-control-label">Thời Gian</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('tour_date') is-invalid @enderror" type="text" name="tour_date" value="" placeholder="Thời Gian" disabled/>
+                                                </div>
+                                                <label class="col-lg-2 col-form-label form-control-label">Ngày Khởi Hành</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('date_start') is-invalid @enderror" type="text" name="date_start" value="" placeholder="Ngày Khởi Hành" disabled/>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group row">
+                                                
+                                                <label class="col-lg-2 col-form-label form-control-label">Giá</label>
+                                                <div class="col-lg-4">
+                                                    <input required="" class="form-control @error('price') is-invalid @enderror" type="number" name="price" value="" placeholder="Giá" disabled/>
+                                                    
+                                                </div>
+                                                {{-- <label class="col-lg-2 col-form-label form-control-label">Giá</label>
+                                                <p id="test"></p> --}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-4 pull-lg-8 text-xs-center">
+                                    <img style="" src="" class="m-x-auto img-fluid " alt="avatar" />
+                                    
+                                </div>
+                                <div> 
+                                        <div class="col-lg-12">
+                                            <div class="form-group row">
+                                                <label class="col-lg-2 col-form-label form-control-label">Giới thiệu</label>
+                                                <div class="col-lg-12">
+                                                    <textarea disabled id="summernote1" name="description1" class="form-control" rows="4" cols="50" ></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                    
+                                <div class="row">
+                                <div class="col-lg-8 push-lg-4 personal-info">
+                                    <div class="form-group row">
+                                        <label class="col-lg-2 col-form-label form-control-label"></label>
+                                        <div class="">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                            
+                                            <input type="hidden" value="" name="id">
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- <div id="ShowModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="container-fluid">
@@ -179,7 +340,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 pull-lg-8 text-xs-center">
+                                <div class="col-lg-3 pull-lg-7 text-xs-center">
                                     <img style="" src="" class="m-x-auto img-fluid " alt="avatar" />
                                     
                                 </div>
@@ -190,7 +351,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 
@@ -234,13 +395,25 @@ $(document).ready(function() {
             success: function(data) {
                 if (data.success) {
                     var path = "{{ asset('') }}";
-                   
+                    $("input[name='name']").val(data.tour.name);
+                    $("input[name='tour_id']").val(data.tour.tour_id);
+                    $("input[name='transport']").val(data.tour.transport);
+                    $("input[name='name']").val(data.tour.name);
+                    $("input[name='tour_date']").val(data.tour.tour_date);
+                    $("input[name='place_start']").val(data.tour.place_start);
+                    $("input[name='date_start']").val(data.tour.date_start);
+                    
+                
+                    $("input[name='price']").val(data.tour.price);
+                    
+                    // $("textarea[name='description']").text(data.tour.description);
                     $("img[alt='avatar']").attr('src', path + data.tour.image);
-                   
-                    var markupStr1 = data.tour.description;
-                    $('#summernote1').summernote('code', markupStr1);
+                    $("#selectbox").val(data.tour.tour_TypeTour_id).find("option[value='" + data.tour.tour_type_tour_id + "']").attr('selected', true);
+                    $("input[name='id']").val(data.tour.id);
+                    var markupStr = data.tour.description;
+                    $('#summernote1').summernote('code', markupStr);
                     // Sumnernote();
-                    $("#editModal1").modal("show");
+                    $("#ShowModal").modal("show");
                 }
             },
             error: function() {
@@ -321,6 +494,14 @@ $(document).ready(function() {
                 if (data.success) {
                     var path = "{{ asset('') }}";
                     $("input[name='name']").val(data.tour.name);
+                    $("input[name='tour_id']").val(data.tour.tour_id);
+                    $("input[name='transport']").val(data.tour.transport);
+                    $("input[name='name']").val(data.tour.name);
+                    $("input[name='tour_date']").val(data.tour.tour_date);
+                    $("input[name='place_start']").val(data.tour.place_start);
+                    $("input[name='date_start']").val(data.tour.date_start);
+                    
+
                     $("input[name='price']").val(data.tour.price);
                     // $("textarea[name='description']").text(data.tour.description);
                     $("img[alt='avatar']").attr('src', path + data.tour.image);
@@ -364,26 +545,7 @@ $(document).ready(function() {
     });
 
 
-    $(document).on('click', '.delete', function(e) {
-        e.preventDefault();
-        var id = $(this).attr('data-id');
-        if (confirm("Are you sure delete this data?")) {
-            $.ajax({
-                url: "{{ route('tour_delete') }}",
-                method: 'post',
-                data: { _token: '{{csrf_token()}}', id: id },
-                success: function(data) {
-                    if (data) {
-                        toastr.success(data, 'Success !!');
-                        table.draw();
-                    }
-                },
-                error: function() {
-                    toastr.error('Error delete', 'Error !!');
-                },
-            });
-        } else return false;
-    });
+    
 
     $(document).on('change', '.check_home_page', function(e) {
         e.preventDefault();

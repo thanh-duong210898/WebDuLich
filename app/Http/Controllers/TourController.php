@@ -76,7 +76,7 @@ class tourController extends Controller
     }
 
     public function get_add(){
-        $data['name'] = 'Add';
+        $data['name'] = 'Thêm';
         $data['tour'] = tour::select('id','name')->get();
         $data['type_tour'] = TypeTour::where('status',1)->get();  
         return view('admin.tour.add_or_edit',$data); 
@@ -93,7 +93,11 @@ class tourController extends Controller
         $tour->name = $request->name;
         $tour->slug = str_slug($request->name);
         $tour->price = $request->price;
+        $tour->tour_id= $request->tour_id;
+        $tour->transport=$request->transport;
         $tour->tour_date = $request->date;
+        $tour->place_start= $request->place_start;
+        $tour->date_start=$request->date_start;
         $tour->tour_TypeTour_id = $request->type_tour;
         $description = $request->description;
         $tour->description = General::uploadImageSummerNote($description);
@@ -124,22 +128,29 @@ class tourController extends Controller
         ],[
 
         ]);
-        $Tour = tour::find($request->id);
-        $Tour->name = $request->name;
-        $Tour->slug = str_slug($request->name);
-        $Tour->price = $request->price;
-        $Tour->tour_TypeTour_id = $request->type_tour;
-        $Tour->description = $request->description;
+        $tour = tour::find($request->id);
+        $tour->name = $request->name;
+        $tour->slug = str_slug($request->name);
+        $tour->price = $request->price;
+        $tour->tour_id= $request->tour_id;
+        $tour->transport=$request->transport;
+        $tour->tour_date = $request->tour_date;
+        $tour->place_start= $request->place_start;
+        $tour->date_start=$request->date_start;
+        $tour->tour_TypeTour_id = $request->type_tour;
         $description = $request->description;
-        $Tour->description = General::uploadImageSummerNote($description);
+        $tour->description = General::uploadImageSummerNote($description);
+
+       
         if($request->hasFile('image')){
-            $Tour->image = General::uploadImage(null,$request->image,null);
+            $tour->image = General::uploadImage(null,$request->image,null);
         }
-        $Tour->save();
+        $tour->save();
 
         return json_encode(['success'=>true]);
         // return back()->with('success','Edit tour Success');
     }
+
 
     public function delete(Request $request){ 
         if($request->id){ 

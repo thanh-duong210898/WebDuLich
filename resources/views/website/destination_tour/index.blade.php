@@ -11,6 +11,10 @@
         </div>
     </div>
 
+
+
+
+
 <div class="destination_details_tour_info">
 
         <div class="container">
@@ -48,14 +52,14 @@
                     </div>
                     <div class="row m-5">
                     <div class="col-sm-6 p5">
-                    <p><i class="fa fa-barcode" aria-hidden="true"></i> MÃ TOUR: HKTPQ18</p>
-                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> Thời gian: 3 ngày 2 đêm</p>
-                    <p><i class="fa fa-calendar" aria-hidden="true"></i> Ngày khởi hành:
-                    HÀNG NGÀY                    </p>
+                    <p><i class="fa fa-barcode" aria-hidden="true"></i> MÃ TOUR: {{ $ValueTour->tour_id }}</p>
+                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> Thời gian: {{ $ValueTour->tour_date }} Ngày</p>
+                    <p><i class="fa fa-calendar" aria-hidden="true"></i> Ngày khởi hành: 
+                        {{ $ValueTour->date_start }}</p>
                     </div>
                     <div class="col-sm-6 p5">
-                    <p><i class="fa fa-car" aria-hidden="true"></i> Phương tiện di chuyển: Ô tô</p>
-                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> Nơi khởi hành: TP. Hồ Chí Minh</p>
+                    <p><i class="fa fa-car" aria-hidden="true"></i> Phương tiện di chuyển: {{ $ValueTour->transport }}</p>
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i> Nơi khởi hành: {{ $ValueTour->place_start }}</p>
                     <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <a href="https://hoangkhoitravel.com/index.php?com=search&textsearch=tour-du-lich-phu-quoc-3-ngay-2-dem"><b>Ngày khác</b></a></p>
                     </div>
                     </div>
@@ -63,8 +67,8 @@
                     <hr style="margin-top: 10px;margin-bottom: 10px;border-color: #eae8e8;">
                     <div class="row m-10">
                     <div class="col-sm-8">
-                    <p style="margin-bottom: 0px;"><b>GIÁ TOUR:</b> <strong class="gia-tour">1,650,000</strong> vnđ<br>
-                    Số chỗ còn nhận: <b>40</b></p>
+                    <p style="margin-bottom: 0px;"><b>GIÁ TOUR:</b> <strong class="gia-tour">  {{ number_format($ValueTour->price) }}</strong> vnđ<br>
+                    
                     </div>
                     <div class="col-sm-4">
                     <form method="post" action="https://hoangkhoitravel.com/gio-hang.html" class="check-cart row">
@@ -79,7 +83,7 @@
                     </div>
                     <hr style="margin-top: 10px;margin-bottom: 10px;border-color: #eae8e8;">
                     <div style="font-size: 15px;color: red;">
-                    <i class="fa fa-phone" aria-hidden="true"></i> Hotline hỗ trợ 24/7: <strong>(028) 6660 1616   0962.111.247</strong>
+                    <i class="fa fa-phone" aria-hidden="true"></i> Hotline hỗ trợ 24/7: <strong>(028) 6660 1616 - 0962.111.247</strong>
                     <div class="pull-right xs-none">
                     <div class="fb-like" data-href="https://hoangkhoitravel.com/tour-du-lich-phu-quoc-3-ngay-2-dem.html?fbclid=IwAR243iJmm7hHmLymUVNIP16CqrSxYzlW66OjppuR3PRlKeS2zQkjbPjkjn8" data-width="" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                     </div>
@@ -337,125 +341,6 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-md-6 col-lg-4 ">
-                        <div class="footer_widget">
-                            <div class="footer_logo">
-                                <a href="#">
-                                    <img src="img/footer_logo.png" alt="">
-                                </a>
-                            </div>
-                            <p>5th flora, 700/D kings road, green <br> lane New York-1782 <br>
-                                <a href="#">+10 367 826 2567</a> <br>
-                                <a href="#">contact@carpenter.com</a>
-                            </p>
-                            <div class="socail_links">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-twitter-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-pinterest"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-youtube-play"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Company
-                            </h3>
-                            <ul class="links">
-                                <li><a href="#">Pricing</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#"> Gallery</a></li>
-                                <li><a href="#"> Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Popular destination
-                            </h3>
-                            <ul class="links double_links">
-                                <li><a href="#">Indonesia</a></li>
-                                <li><a href="#">America</a></li>
-                                <li><a href="#">India</a></li>
-                                <li><a href="#">Switzerland</a></li>
-                                <li><a href="#">Italy</a></li>
-                                <li><a href="#">Canada</a></li>
-                                <li><a href="#">Franch</a></li>
-                                <li><a href="#">England</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Instagram
-                            </h3>
-                            <div class="instagram_feed">
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/1.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/2.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/3.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/4.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/5.png" alt="">
-                                    </a>
-                                </div>
-                                <div class="single_insta">
-                                    <a href="#">
-                                        <img src="img/instagram/6.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+    
 
 @endsection

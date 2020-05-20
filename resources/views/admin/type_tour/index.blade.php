@@ -20,7 +20,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"><a href="{{ route('get_add_TypeOfTour') }}" class="btn btn-primary">New Type</a></h6>
+            <h6 class="m-0 font-weight-bold text-primary"><a href="{{ route('get_add_TypeOfTour') }}" class="btn btn-primary">New</a></h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

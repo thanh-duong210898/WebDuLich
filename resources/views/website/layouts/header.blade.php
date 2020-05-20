@@ -16,7 +16,7 @@ $logo = \App\Logo::first();
                         <div class="row align-items-center">
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="{{ URL::route('website.home') }}">
                                         <img src="{{asset('website/img/logo.png')}}" alt="">
                                     </a>
                                 </div>
@@ -25,8 +25,8 @@ $logo = \App\Logo::first();
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a class="active" href="index.html">home</a></li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a class="active" href="{{ URL::route('website.home') }}">home</a></li>
+                                            <li><a href="{{ URL::route('website.about') }}">About</a></li>
                                             <li><a class="" href="travel_destination.html">Destination</a></l/li>
                                             <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">

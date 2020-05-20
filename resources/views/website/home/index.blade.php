@@ -8,8 +8,8 @@
                     <div class="row align-items-center">
                         <div class="col-xl-12 col-md-12">
                             <div class="slider_text text-center">
-                                <h3>Indonesia</h3>
-                                <p>Pixel perfect design with awesome contents</p>
+                                <h3>Cam Ranh</h3>
+                                <p>Sự Hiếu Khách Và Thân Thiện</p>
                                 <a href="#" class="boxed-btn3">Explore Now</a>
                             </div>
                         </div>
@@ -21,8 +21,8 @@
                     <div class="row align-items-center">
                         <div class="col-xl-12 col-md-12">
                             <div class="slider_text text-center">
-                                <h3>Australia</h3>
-                                <p>Pixel perfect design with awesome contents</p>
+                                <h3>Hội An</h3>
+                                <p>Không Khí Bình Yên Nhẹ Nhàng</p>
                                 <a href="#" class="boxed-btn3">Explore Now</a>
                             </div>
                         </div>
@@ -34,14 +34,15 @@
                     <div class="row align-items-center">
                         <div class="col-xl-12 col-md-12">
                             <div class="slider_text text-center">
-                                <h3>Switzerland</h3>
-                                <p>Pixel perfect design with awesome contents</p>
+                                <h3>Nha Trang</h3>
+                                <p>Thành Phố Du Lịch Biển Nổi Tiếng Nhất Việt Nam</p>
                                 <a href="#" class="boxed-btn3">Explore Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
         </div>
 
     </div>

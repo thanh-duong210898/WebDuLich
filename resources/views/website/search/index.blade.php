@@ -1,3 +1,9 @@
+{{-- <@php
+{{use App\TypeTour}}
+@endphp
+ --}}
+
+
 @extends("website.layouts.master")
 @section("content")
 
@@ -5,15 +11,7 @@
 
 
 <div class="destination_banner_wrap overlay">
-    
 
-    
-    
-
-        <div class="destination_text text-center">
-            <h3>Saintmartine Iceland</h3>
-            <p>Pixel perfect design with awesome contents</p>
-        </div>
 </div>
 
 
@@ -22,15 +20,16 @@
 
 
         <div class="popular_places_area">
+
         <div class="container">
+            <h3 style="margin-bottom: 10px; font-family: -webkit-body; font-weight:  bolder;">Tìm Thấy {{ count($tour) }} Tour: </h3>
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="section_title text-center mb_70">
-                        <h3>{{ $nameType }}</h3>
 
-                    </div>
+                    
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-lg-4">
                     <div class="filter_result_wrap">
@@ -111,11 +110,12 @@
                             <div class="single_place">
                                 <div class="thumb">
                                      <img src="{{asset($value->image)}}" alt="">
-                                    <a href="{{ asset("destination").'/'.$value->id }}" class="prise">{{ number_format($value->price) }} VNĐ</a>
+                                    <a href="{{ asset("destination").'/'.$value->id }}" class="prise">{{ $value->price }} VNĐ</a>
                                 </div>
                                 <div class="place_info">
                                     <a href="{{ asset("destination").'/'.$value->id }}"><h3>{{$value->name}}</h3></a>
-                                    <p>{{ $nameType }}</p>
+                                    
+
                                     <div class="rating_days d-flex justify-content-between">
                                         <span class="d-flex justify-content-center align-items-center">
                                              <i class="fa fa-star"></i> 

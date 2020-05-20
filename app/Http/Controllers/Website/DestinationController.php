@@ -23,6 +23,7 @@ class DestinationController extends Controller
             'description'=>$this->tour->getDescriptionById($idtour),
             'img'=>$this->tour->getImgById($idtour),
             'name'=>$this->tour->getNameById($idtour),
+            'ValueTour'=>$this->tour->getValueByID($idtour),
     	];
         return view("website.destination_tour.index",$data);
     }

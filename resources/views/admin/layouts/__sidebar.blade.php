@@ -6,7 +6,7 @@ $menu = \App\MenuItem::where('parent_id',0)->where('status',1)->with('childs')->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
         <div class="sidebar-brand-icon">
             <!-- <i class="fas fa-laugh-wink"></i> -->
-            <img src="{{ asset('img/logo.png') }}" height="40" width="40">
+            <img src="{{ asset('admin/img/logo.png') }}" height="40" width="40">
         </div>
         <div class="sidebar-brand-text mx-3">Management</div>
     </a>

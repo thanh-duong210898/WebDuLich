@@ -9,7 +9,7 @@ $contact = \App\Contact::first();
                     <div class="col-xl-4 col-md-6 col-lg-4 ">
                         <div class="footer_widget">
                             <div class="footer_logo">
-                                <a href="#">
+                                <a href="{{ URL::route('website.home') }}">
                                     <img src="{{asset('website/img/footer_logo.png')}}" alt="">
                                 </a>
                             </div>
@@ -141,8 +141,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="serch_form">
-            <input type="text" placeholder="Search" >
-            <button type="submit">search</button>
+            <form action="{{ route('website.search') }}" method="get">
+            <input type="text" name="key" placeholder="Search" >
+            <button type="submit" href="#" >search</button>
+            </form>
         </div>
       </div>
     </div>

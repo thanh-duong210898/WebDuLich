@@ -296,9 +296,10 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::get('special/get','SpecialController@getPostByPage')->name('website.special.getPostByPage');
         Route::post('special/post-form','SpecialController@postForm')->name('website.special.postForm');
 
-         Route::get('type/{id}','TypeController@index')->name('website-type');
-         Route::get('destination/{id}','DestinationController@index')->name('website.destination');
-
+        Route::get('type/{id}','TypeController@index')->name('website-type');
+        Route::get('destination/{id}','DestinationController@index')->name('website.destination');
+        Route::get('about','AboutController@index')->name('website.about');
+        Route::get('search','SearchController@index')->name('website.search');
 
     });
     

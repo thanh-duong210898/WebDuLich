@@ -24,6 +24,7 @@ class TypeController extends Controller
             'tour'=>$this->tour->getByTypeTourId($idtour),
             
             'nameType'=>$this->typetour->getNameById($idtour),
+            'type_tour'=>$this->typetour->get()->where('status',1),
     	];
         return view("website.type_tour.index",$data);
     }

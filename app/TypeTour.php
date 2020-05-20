@@ -33,5 +33,5 @@ class TypeTour extends Model
     	
     	return $this->where('id',$id)->where('status',1)->get('image');
     }
-    
+
 }
