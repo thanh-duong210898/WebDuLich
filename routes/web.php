@@ -300,6 +300,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::get('destination/{id}','DestinationController@index')->name('website.destination');
         Route::get('about','AboutController@index')->name('website.about');
         Route::get('search','SearchController@index')->name('website.search');
+        Route::get('filter','SearchController@filter')->name('website.filter');
 
     });
     

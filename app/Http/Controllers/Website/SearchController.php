@@ -27,4 +27,16 @@ class SearchController extends Controller
 
     	return view('website.search.index',$data);
     }
+    public function filter(request $request)
+    {
+        $data = [
+            'tour'=>$this->tour->filter($request),
+             'type_tour'=>$this->typetour->get()->where('status',1),
+            
+        ];
+        
+
+        return view('website.search.index',$data);
+    }
+
 }

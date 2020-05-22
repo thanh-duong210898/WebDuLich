@@ -90,14 +90,14 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section_title text-center mb_70">
-                        <h3>Popular Destination</h3>
-                        <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
+                        <h3>Điểm Đến Phổ Biến</h3>
+                        <p>Hơn 125 bãi biển, 22 di sản thế giới được UNESCO công nhận, hơn 3.000 cảnh quan và khu di tích được công nhận là di sản quốc gia, 8 khu dự trữ sinh quyển thế giới,... </p>
                     </div>
                 </div>
             </div>
             <div class="row">
                  @foreach($typetour as $value)
-                 <a href="{{ asset("type").'/'.$value->id }}" >
+                 {{-- <a href="{{ asset("type").'/'.$value->id }}" > --}}
                 <div class="col-lg-4 col-md-6">
                   
                     
@@ -110,15 +110,34 @@
                         </div>
                         
                         <div class="content">
-                            <p>{{ $value['name'] }} <a href="travel_destination.html">  07 Places</a> </p>
-                             
+                            {{-- <p class="d-flex align-items-center">{{ $value['name'] }} <a href="travel_destination.html">  07 Places</a> </p> --}}
+                             <p class="d-flex align-items-center">
+                            <a href="{{ asset("type").'/'.$value->id }}" >{{ $value['name'] }}</a>
+                            {{-- <a href="{{ asset("type").'/'.$value->id }}">  {{ count($value) }} Places</a> </p> --}}
+                            
+                            <?php
+                            $count=0;
+                            ?>
+
+                            @foreach ($alltour as $key)
+                            <?php
+                            
+                                
+                                if(($key->tour_TypeTour_id)==($value->id))
+                                    $count++;
+                               
+                            ?>
+                            @endforeach
+                              
+                            <a href="{{ asset("type").'/'.$value->id }}">{{ $count }} Places</a> </p>
+                            
                         </div>
                         
                     </div>
                   
                     
                 </div>
-                </a>
+                
                  @endforeach
             </div>
         </div>
@@ -147,7 +166,7 @@
                     <div class="video_wrap text-center">
                         <h3>Enjoy Video</h3>
                         <div class="video_icon">
-                            <a class="popup-video video_play_button" href="https://www.youtube.com/watch?v=f59dDEk57i0">
+                            <a class="popup-video video_play_button" href="https://www.youtube.com/watch?v=M2o-AnFChT4">
                                 <i class="fa fa-play"></i>
                             </a>
                         </div>
@@ -164,34 +183,33 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single_travel text-center">
                         <div class="icon">
-                            <img src="{{asset('website/img/svg_icon/1.svg')}}" alt="">
+                            <img src="{{ asset ('website/img/svg_icon/1.svg') }}" alt="">
                         </div>
-                        <h3>Comfortable Journey</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                        <h3>Hành trình thoải mái</h3>
+                        <p>Tạo cảm giác thoải mái nhất cho khách hàng trong mỗi chuyến đi</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single_travel text-center">
                         <div class="icon">
-                            <img src="{{asset('website/img/svg_icon/2.svg')}}" alt="">
+                            <img src="{{ asset ('website/img/svg_icon/2.svg') }}" alt="">
                         </div>
-                        <h3>Luxuries Hotel</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                        <h3>Khách sạn sang trọng</h3>
+                        <p>Lựa chọn khách sạn tốt nhất đảm bảo sự hài lòng của khách hàng</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single_travel text-center">
                         <div class="icon">
-                            <img src="{{asset('website/img/svg_icon/3.svg')}}" alt="">
+                            <img src="{{ asset ('website/img/svg_icon/3.svg') }}" alt="">
                         </div>
-                        <h3>Travel Guide</h3>
-                        <p>A wonderful serenity has taken to the possession of my entire soul.</p>
+                        <h3>Hướng dẫn viên du lịch</h3>
+                        <p>Vui vẻ, nhiệt tình, thân thiện với khách hàng </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- testimonial_area  -->
     <div class="testimonial_area">

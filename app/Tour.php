@@ -45,7 +45,11 @@ class Tour extends Model
         $value=tour::find($id);
         return $value;
     }
-    public function search($request)
+   
+    public function getAll(){
+        return $this->all();
+    }
+     public function search($request)
     {
 
         $tour = tour::where('name','like','%'.$request->key.'%')
@@ -54,6 +58,44 @@ class Tour extends Model
 
         // return $this->select('tour.*')->where('name','like','%'.$request->key.'%')
         //         ->orwhere('price','like',$request->key)->get();
+    }
+     public function filter($request)
+    {
+    
+        $place=isset($_GET['Place_start']) ? $_GET['Place_start'] : '';
+        $type=isset($_GET['TypeTour']) ? $_GET['TypeTour'] : '';
+        $price=isset($_GET['price']) ? $_GET['price'] : '';
+        if($price==1)
+        {
+            $price_max=3000000;
+            $price_min=1000000;
+        }
+        if($price==2)
+        {
+            $price_max=5000000;
+            $price_min=3000000;
+        }
+        if($price==3)
+        {
+            $price_max=7000000;
+           $price_min=5000000;
+        }
+        if($price==4)
+        {
+            $price_max=9000000;
+            $price_min=7000000;
+        }
+        if($price==5)
+        {
+            $price_max=100000000;
+            $price_min=9000000;
+        }
+        $tour = tour::where('tour_TypeTour_id','like',$type)
+                ->where('place_start','like',$place)
+                ->where( 'price', '>' , $price_min  )
+                ->where( 'price', '<' , $price_max  )
+                ->get();
+        return $tour;
     }
 
 }

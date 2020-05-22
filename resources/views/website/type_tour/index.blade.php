@@ -36,27 +36,35 @@
                     <div class="filter_result_wrap">
                         <h3>Tìm Kiếm:</h3>
                         <div class="filter_bordered">
+                            <form action="{{ route('website.filter') }}" method="get">
                             <div class="filter_inner">
                                 <div class="row">
+                                    
                                     <div class="col-lg-12">
                                         
                                         <div class="single_select">
                                             <h3 style="margin-bottom: 10px; font-family: -webkit-body; font-weight:  bolder;">Loại Tour</h3>
-                                            <select>
+                                            <select name="TypeTour">
 
                                                  @foreach ($type_tour as $element)
-                                                        <option value="{{$element->id}}">{{$element->name}}</option>
-                                                        @endforeach
+                               <option 
+                               @if(isset($tour->tour_type_tour_id))
+                               @if ($tour->tour_type_tour_id == $element->id)
+                                 {{'selected'}}
+                               @endif 
+                               @endif
+                               value="{{$element->id}}">{{$element->name}}</option>
+                           @endforeach
                                               </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="single_select">
                                             <h3 style="margin-bottom: 10px; font-family: -webkit-body; font-weight:  bolder;">Nơi khởi hành</h3>
-                                            <select>
-                                                <option data-display="Travel type">Nơi Khởi hành</option>
-                                                <option value="1">Hà Nội</option>
-                                                <option value="2">TP Hồ CHí Minh</option>
+                                            <select name="Place_start">
+                                                
+                                                <option value="Hà Nội">Hà Nội</option>
+                                                <option value="TP Hồ Chí Minh">TP Hồ CHí Minh</option>
                                               </select>
                                         </div>
                                     </div>
@@ -74,16 +82,17 @@
                                     <div class="col-lg-12">
                                         <div class="single_select">
                                             <h3 style="margin-bottom: 10px; font-family: -webkit-body; font-weight:  bolder;">Giá</h3>
-                                            <select>
-                                                <option data-display="Travel type">Giá</option>
+                                            <select name="price">
+                                                
                                                 <option value="1">Từ 1 - 3 triệu</option>
                                                 <option value="2">Từ 3 - 5 triệu</option>
-                                                <option value="4">Từ 5 - 7 triệu</option>
-                                                <option value="2">Từ 7 - 9 triệu</option>
-                                                <option value="4">Trên 9 triệu</option>
+                                                <option value="3">Từ 5 - 7 triệu</option>
+                                                <option value="4">Từ 7 - 9 triệu</option>
+                                                <option value="5">Trên 9 triệu</option>
                                               </select>
                                         </div>
                                     </div>
+                                    
                                     {{-- <div class="col-lg-12">
                                         <div class="range_slider_wrap">
                                             <span class="range">Prise range</span>
@@ -101,6 +110,7 @@
                             <div class="reset_btn">
                                 <button class="boxed-btn4" type="submit">Tìm</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

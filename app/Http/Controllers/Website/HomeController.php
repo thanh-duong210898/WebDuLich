@@ -43,6 +43,7 @@ class HomeController extends Controller
             'title' => $this->title->find(1) ?? null,
             'banner' => $this->banner->find(1) ?? null,
             'typetour' =>$this->typetour->getAll(),
+            'alltour' =>$this->tour->getAll(),
             'tour'=>$this->tour->getByTypeTourId(1),
     	];
         return view("website.home.index",$data);
