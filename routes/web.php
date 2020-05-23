@@ -280,13 +280,16 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
     Route::group(['namespace' => 'Website'], function() {
         Route::get('/', "HomeController@index")->name('website.home');
 
-        Route::get('blog/get-post','BlogController@getPostByPage')->name('blog.getPostByPage');
-        Route::get('blog/{slug}','BlogController@getBySlug')->name('blog.getBySlug');
+        // Route::get('blog/get-post','BlogController@getPostByPage')->name('blog.getPostByPage');
+        // Route::get('blog/{slug}','BlogController@getBySlug')->name('blog.getBySlug');
+        Route::get('blog','BlogController@index')->name('website.blog');
+
 
         Route::get('service','ServiceController@index')->name('website.service');
 
+        // Route::get('contact','ContactController@index')->name('website.contact');
         Route::get('contact','ContactController@index')->name('website.contact');
-
+            
         Route::get('shop/{slug}','ShopController@index')->name('website.shop');
         Route::get('product/{slug}','ShopController@detail')->name('website.product');
 
@@ -300,6 +303,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::get('destination/{id}','DestinationController@index')->name('website.destination');
         Route::get('about','AboutController@index')->name('website.about');
         Route::get('search','SearchController@index')->name('website.search');
+        Route::get('filter','SearchController@filter')->name('website.filter');
         Route::get('filter','SearchController@filter')->name('website.filter');
 
     });

@@ -76,7 +76,9 @@
                     <input type="hidden" name="id" value="36">
                     <input type="hidden" name="url" value="https://hoangkhoitravel.com/tour-du-lich-phu-quoc-3-ngay-2-dem.html?fbclid=IwAR243iJmm7hHmLymUVNIP16CqrSxYzlW66OjppuR3PRlKeS2zQkjbPjkjn8">
                     <div class="">
+                    <a href="{{ route('website.about') }}">
                     <button type="button" data-toggle="modal" data-target="#myModal" name="addcart" class="btn-cart form-control" >Đặt chỗ</button>
+                    </a>
                     </div>
                     </form>
                     </div>

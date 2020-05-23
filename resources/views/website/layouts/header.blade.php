@@ -27,20 +27,20 @@ $logo = \App\Logo::first();
                                         <ul id="navigation">
                                             <li><a class="active" href="{{ URL::route('website.home') }}">home</a></li>
                                             <li><a href="{{ URL::route('website.about') }}">About</a></li>
-                                            <li><a class="" href="travel_destination.html">Destination</a></l/li>
-                                            <li><a href="#">pages <i class="ti-angle-down"></i></a>
+                                            {{-- <li><a class="" href="travel_destination.html">Destination</a></l/li> --}}
+                                            {{-- <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
                                                         <li><a href="destination_details.html">Destinations details</a></li>
                                                         <li><a href="elements.html">elements</a></li>
                                                 </ul>
-                                            </li>
-                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
+                                            </li> --}}
+                                            <li><a href="{{ URL::route('website.blog') }}">blog {{-- <i class="ti-angle-down"> --}}</i></a>
+                                                {{-- <ul class="submenu">
                                                     <li><a href="blog.html">blog</a></li>
                                                     <li><a href="single-blog.html">single-blog</a></li>
-                                                </ul>
+                                                </ul> --}}
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="{{ URL::route('website.contact') }}">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
