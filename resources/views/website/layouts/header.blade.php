@@ -6,7 +6,10 @@ $getProductType = $productType->getAll();
 $logo = \App\Logo::first();
 // echo $getProductType;die;
 @endphp --}}
-
+@php
+    $flight = new \App\Flight;
+    $flight = $flight->getAll();
+@endphp
 
 <header>
         <div class="header-area ">
@@ -35,10 +38,16 @@ $logo = \App\Logo::first();
                                                 </ul>
                                             </li> --}}
                                             <li><a href="{{ URL::route('website.blog') }}">blog {{-- <i class="ti-angle-down"> --}}</i></a>
-                                                {{-- <ul class="submenu">
-                                                    <li><a href="blog.html">blog</a></li>
-                                                    <li><a href="single-blog.html">single-blog</a></li>
-                                                </ul> --}}
+                                                
+                                            </li>
+                                            <li><a href="#">Đặt vé máy bay {{-- <i class="ti-angle-down"> --}}</i></a>
+                                                <ul class="submenu">
+
+                                                    @foreach ($flight as $element)
+                                                        <li><a href="{{ route('website.flight',$element->slug) }}">{{ $element->name }}</a></li>
+                                                    @endforeach
+                                                    
+                                                </ul>
                                             </li>
                                             <li><a href="{{ URL::route('website.contact') }}">Contact</a></li>
                                         </ul>

@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('test','Website\FlightController@test');
 Route::get('home', function() {
     //
 })->name("home");
@@ -271,6 +271,16 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::get('/datatables','SpecialFormController@datatable')->name('special-form.datatable');
     });
 
+    Route::group(['prefix' => 'flight'] , function(){
+        Route::get('/','FlightController@index')->name('flight');
+        Route::get('/edit','FlightController@getEdit')->name('flight.edit');
+        Route::post('/edit','FlightController@postEdit')->name('flight.postEdit');
+        Route::get('/add','FlightController@getAdd')->name('flight.add');
+        Route::post('/add','FlightController@postAdd');
+        Route::get('/datatables','FlightController@datatable')->name('flight.datatable');
+        Route::post('/delete','FlightController@delete')->name('flight.delete');
+    });
+
 }); 
 
 
@@ -305,6 +315,11 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::get('search','SearchController@index')->name('website.search');
         Route::get('filter','SearchController@filter')->name('website.filter');
         Route::get('filter','SearchController@filter')->name('website.filter');
+
+
+        Route::get('flight/{slug}','FlightController@getFlight')->name('website.flight');
+
+
 
     });
     
