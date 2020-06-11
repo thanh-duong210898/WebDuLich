@@ -40,7 +40,7 @@ $logo = \App\Logo::first();
                                             <li><a href="{{ URL::route('website.blog') }}">blog {{-- <i class="ti-angle-down"> --}}</i></a>
                                                 
                                             </li>
-                                            <li><a href="#">Đặt vé máy bay {{-- <i class="ti-angle-down"> --}}</i></a>
+                                            <li><a href="#">Flight {{-- <i class="ti-angle-down"> --}}</i></a>
                                                 <ul class="submenu">
 
                                                     @foreach ($flight as $element)

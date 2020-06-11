@@ -101,7 +101,7 @@
     <div class="destination_details_tour_info">
         <div class="container">
             <div class="row {{-- justify-content-center --}}">
-                <div class="col-lg-8 col-md-9">
+                <div class="col-lg-12 col-md-12">
                     <div class="destination_info">
                         {!!$description!!}
                     </div>

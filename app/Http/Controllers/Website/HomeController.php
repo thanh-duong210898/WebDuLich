@@ -48,6 +48,20 @@ class HomeController extends Controller
     	];
         return view("website.home.index",$data);
     }
+    public function countTour($tourId){
+        $number = $this->tour->where('tour_TypeTour_id',$tourId)->count();
+        return $number;
+    }
+    public function loadMore(Request $request){
+        $arr=[];
+        $take = 3 ;
+        $skip=$request->page * $take;
+        $data = $this->typetour->skip($skip)->take($take)->where('status',1)->get();
+          foreach ($data as $value) {
+            $arr[] = $this->countTour($value->id); 
+        }
+        $result = ['status'=> 1 ,'data' => $data , 'count'=>$arr];
 
-    
+        return response()->json($result);
+    }
 }

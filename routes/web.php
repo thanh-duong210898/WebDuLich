@@ -12,7 +12,7 @@
 */
 Route::get('test','Website\FlightController@test');
 Route::get('home', function() {
-    //
+    // dd(['asd'=>'abc']);
 })->name("home");
 
 Route::get('admin/login', 'UserController@showLogin')->name('login');
@@ -318,6 +318,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
 
 
         Route::get('flight/{slug}','FlightController@getFlight')->name('website.flight');
+
+        Route::get('load-more','HomeController@loadMore')->name('loadMore');
 
 
 

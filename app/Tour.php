@@ -34,6 +34,9 @@ class Tour extends Model
         $name= $value->name;
         return $name;
     }
+    public function getById($id){
+        return $this->where('status','1')->where('id',$id)->first();
+    }
     public function getTourIDById($id){
 
         $value=tour::find($id);

@@ -8,22 +8,22 @@ use App\Tour;
 
 class DestinationController extends Controller
 {
-
+    private $tour;
 	public function __construct(){
 		
         $this->tour= new Tour;
 	}
 
     public function index($idtour){
-            
+        $data = $this->tour->getById($idtour);    
     	$data = [
-            'price'=>$this->tour->getPrice($idtour),
+            'price'=>$data->price,
             'value'=>$this->tour->getByTypeTourId($idtour),
             'tour'=>$this->tour->getByTypeTourId($idtour),
-            'description'=>$this->tour->getDescriptionById($idtour),
-            'img'=>$this->tour->getImgById($idtour),
-            'name'=>$this->tour->getNameById($idtour),
-            'ValueTour'=>$this->tour->getValueByID($idtour),
+            'description'=>$data->description,
+            'img'=>$data->image,
+            'name'=>$data->name,
+            'ValueTour'=>$data,
     	];
         return view("website.destination_tour.index",$data);
     }
