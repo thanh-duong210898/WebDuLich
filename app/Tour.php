@@ -52,7 +52,12 @@ class Tour extends Model
     public function getAll(){
         return $this->all();
     }
+
+    public function getTourByNum($num ,$id){
+        return $this->where('status',1)->where('tour_TypeTour_id',$id)->take($num)->get();
+    }
      public function search($request)
+    
     {
 
         $tour = tour::where('name','like','%'.$request->key.'%')

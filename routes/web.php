@@ -320,6 +320,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::get('flight/{slug}','FlightController@getFlight')->name('website.flight');
 
         Route::get('load-more','HomeController@loadMore')->name('loadMore');
+        Route::get('load-more-tour','HomeController@loadMoreTour')->name('loadMoreTour');
 
 
 

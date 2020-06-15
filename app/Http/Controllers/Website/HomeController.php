@@ -23,6 +23,7 @@ class HomeController extends Controller
     private $title;
 
 	public function __construct(){
+        $this->typetour = new TypeTour;
 		$this->slide = new Slide;
         $this->slideTitle = new SlideTitle;
         $this->homeService = new HomeService;
@@ -63,5 +64,22 @@ class HomeController extends Controller
         $result = ['status'=> 1 ,'data' => $data , 'count'=>$arr];
 
         return response()->json($result);
+    }
+
+    public function loadMoreTour (Request $request){
+        $take = 4;
+        $skip = $request->page * $take ;
+        $data = $this->tour->select(
+            'tour.*','type_tour.name as nametype'
+        )
+        ->where('tour.status',1)->skip($skip)->take($take)
+        ->join('type_tour','tour.tour_TypeTour_id','type_tour.id')
+        ->get();
+
+        $result = ['status'=>1 , 'data'=>$data ];
+        
+        return response()->json($result);
+
+
     }
 }

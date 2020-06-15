@@ -1,5 +1,25 @@
 @extends("website.layouts.master")
+
+@section("styles")
+{{-- <style>
+.content {
+  padding:0px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+        </style>
+@endsection --}}
+
 @section("content")
+
 
 
 
@@ -31,8 +51,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4">
+            <div class="row ">
+           
+                <div class="col-lg-4 " >
                     <div class="filter_result_wrap">
                         <h3>Tìm Kiếm:</h3>
                         <div class="filter_bordered">
@@ -108,14 +129,14 @@
                             </div>
 
                             <div class="reset_btn">
-                                <button class="boxed-btn4" type="submit">Tìm</button>
+                                <button class="boxed-btn4 " type="submit">Tìm</button>
                             </div>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="row">
+                    <div class="row loadHere">
                         @foreach($tour as $value)
                         <div class="col-lg-6 col-md-6">
                             <div class="single_place">
@@ -148,7 +169,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="more_place_btn text-center">
-                                <a class="boxed-btn4" href="#">More Places</a>
+                                <button class="boxed-btn4 loadMore " page='1'  >More Places</button>
                             </div>
                         </div>
                     </div>
@@ -286,15 +307,91 @@
             </div>
         </div>
     </div>
-    <script src="js/main.js"></script>
-    <script>
+    {{-- <script src="js/main.js"></script> --}}
+ {{--    <script>
         $('#datepicker').datepicker({
             iconsLibrary: 'fontawesome',
             icons: {
              rightIcon: '<span class="fa fa-caret-down"></span>'
          }
         });
+    </script> --}}
+    
+
+
+{{--     <script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+    $('#hideMyHeader').show();
+    $('.filter_result_wrap').css('width','83%');
+
+  } else {
+    header.classList.remove("sticky");
+    $('#hideMyHeader').hide();
+    $('.filter_result_wrap').css('width','100%');
+  }
+}
+</script> --}}
+@endsection
+@section('scripts')
+        <script>
+ 
+            $(document).on('click','.loadMore',function(){
+                
+                var page = $(this).attr('page');
+                var abc= Number(page)+1;
+                $.ajax({
+                    url:"{{ route('loadMoreTour') }}",
+                    method:'get',
+                    dataType:'json',
+                    data:{page:page},
+                    success : function(data){
+                          
+                        if(data.status){
+                            var html = "";
+                            
+                            $('.loadMore').attr('page',abc);
+                            for(var i = 0 ; i < data.data.length ; i++){
+                                html=html + ' <div class="col-lg-6 col-md-6">'+
+                            '<div class="single_place">'+
+                                '<div class="thumb">'+
+                                     '<img src="/'+data.data[i].image+'" alt="">'+
+                                   ' <a href="/destination/'+data.data[i].id+'" class="prise"> '+data.data[i].price+'VNĐ</a>'+
+                               ' </div>'+
+                      '          <div class="place_info">'+
+                                 '   <a href="/destination/'+data.data[i].id+'"><h3>'+data.data[i].name+'</h3></a>'+
+                                    '<p>" '+data.data[i].nametype+' "</p>'+
+                                   ' <div class="rating_days d-flex justify-content-between">'+
+                                    '    <span class="d-flex justify-content-center align-items-center">'+
+                                     '        <i class="fa fa-star"></i> '+
+                                    '         <i class="fa fa-star"></i> '+
+                                             '<i class="fa fa-star"></i> '+
+                                             '<i class="fa fa-star"></i> '+
+                                             '<i class="fa fa-star"></i>'+
+                                             '<a href="#">(20 Review)</a>'+
+                                        '</span>'+
+                                        '<div class="days">'+
+                                            '<i class="fa fa-clock-o"></i>'+
+                                            '<a href="#">'+data.data[i].tour_date+'</a>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>';
+
+                            }
+                      
+                            $('.loadHere').append(html);
+                        }
+                    }
+                });
+            });
+       
     </script>
-    
-    
 @endsection

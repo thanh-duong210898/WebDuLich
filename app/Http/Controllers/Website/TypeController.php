@@ -21,7 +21,7 @@ class TypeController extends Controller
     public function index($idtour){
     	$data = [
             
-            'tour'=>$this->tour->getByTypeTourId($idtour),
+            'tour'=>$this->tour->getTourByNum(4,$idtour),
             
             'nameType'=>$this->typetour->getNameById($idtour),
             'type_tour'=>$this->typetour->get()->where('status',1),

@@ -18,6 +18,7 @@ class General{
      * @return $detail 
      */
     public static function uploadImageSummerNote($detail){
+        libxml_use_internal_errors(true);
         $dom = new \DomDocument();
         $dom->loadHtml('<?xml encoding="utf-8" ?>' .$detail);   
         $images = $dom->getElementsByTagName('img');

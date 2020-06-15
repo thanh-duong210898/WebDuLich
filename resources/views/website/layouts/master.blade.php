@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" href="{{asset('website/css/style.css')}}">
     <!-- <link rel="stylesheet" href="{{asset('website/css/responsive.css')}}"> -->
+    @yield('styles')
 </head>
 
 <body>
@@ -89,11 +90,13 @@
 
     <script src="{{asset('website/js/main.js')}}"></script>
     <script>
+        $(document).ready(function(){
         $('#datepicker').datepicker({
             iconsLibrary: 'fontawesome',
             icons: {
              rightIcon: '<span class="fa fa-caret-down"></span>'
          }
+        });
         });
     </script>
     @yield('scripts')
