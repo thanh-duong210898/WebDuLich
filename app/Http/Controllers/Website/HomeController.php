@@ -12,6 +12,7 @@ use App\Title;
 use App\Banner;
 use App\TypeTour;
 use App\Tour;
+use Carbon\Carbon;
 
 
 class HomeController extends Controller
@@ -57,7 +58,9 @@ class HomeController extends Controller
         $arr=[];
         $take = 3 ;
         $skip=$request->page * $take;
+
         $data = $this->typetour->skip($skip)->take($take)->where('status',1)->get();
+
           foreach ($data as $value) {
             $arr[] = $this->countTour($value->id); 
         }
@@ -69,17 +72,44 @@ class HomeController extends Controller
     public function loadMoreTour (Request $request){
         $take = 4;
         $skip = $request->page * $take ;
+
         $data = $this->tour->select(
             'tour.*','type_tour.name as nametype'
         )
         ->where('tour.status',1)->skip($skip)->take($take)
         ->join('type_tour','tour.tour_TypeTour_id','type_tour.id')
-        ->get();
+        ->where('tour_TypeTour_id',$request->typetour);
 
+        if($request->place_start ){
+            $price=   $this->tour->getPriceMinMax($request->price);
+             $data =  $data->where('place_start',$request->place_start)
+             ->where('price','<=',$price['max'])->where('price','>=',$price['min']);
+        } 
+         $data =  $data->get();
         $result = ['status'=>1 , 'data'=>$data ];
         
         return response()->json($result);
 
+    }
 
+    public function search($name , $date , $tourId){
+
+        $dateCb1 =  Carbon::parse ($date);
+        $dateCb2 =  Carbon::parse ($date);
+
+
+        $endDate = $dateCb1->addDays(2);
+
+        $startDate = $dateCb2->subDays(1);
+
+
+        // dd( $endDate ."|| ". $startDate);
+        $data['tour'] = $this->tour->where('tour_TypeTour_id',$tourId)
+        ->where('date_start','>=',$startDate)
+        ->where('date_start','<=',$endDate)
+        ->where('slug','like','%'.str_slug($name).'%')
+        ->get();
+        // dd($data);
+        return view('website.search.searchtour',$data);
     }
 }

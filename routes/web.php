@@ -323,7 +323,7 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::get('load-more-tour','HomeController@loadMoreTour')->name('loadMoreTour');
 
 
-
+        Route::get('searchtour/{name}/{date}/{tourId}','HomeController@search')->name('searchtour');
     });
     
 

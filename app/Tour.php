@@ -105,5 +105,43 @@ class Tour extends Model
                 ->get();
         return $tour;
     }
+    public function getPriceMinMax($price){
 
+
+         if($price==1)
+        {
+            $price_max=3000000;
+            $price_min=1000000;
+        }
+        if($price==2)
+        {
+            $price_max=5000000;
+            $price_min=3000000;
+        }
+        if($price==3)
+        {
+            $price_max=7000000;
+           $price_min=5000000;
+        }
+        if($price==4)
+        {
+            $price_max=9000000;
+            $price_min=7000000;
+        }
+        if($price==5)
+        {
+            $price_max=100000000;
+            $price_min=9000000;
+        }
+
+        return [
+            'min'=>$price_min ?? null ,
+            'max'=>$price_max ?? null
+        ] ;
+
+    }
+
+    public function getPlaceStart($now){
+        return $this->select('place_start')->WhereDate('date_start','>=',$now)->distinct('place_start')->where('status',1)->get();
+    }
 }

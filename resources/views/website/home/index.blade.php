@@ -55,22 +55,23 @@
             </div>
             <div class="col-lg-9">
                 <div class="search_wrap">
-                    <form class="search_form" action="#">
+                    <form class="search_form"  id="searchTour-form"  method="get"   action="#">
                         <div class="input_field">
-                            <input type="text" placeholder="Where to go?">
+                            <input type="text   " class="searchName" placeholder="Where to go?"  required="">
                         </div>
                         <div class="input_field">
-                            <input id="datepicker" placeholder="Date">
+                            <input id="datepicker" class="searchDate" placeholder="Date" required="">
                         </div>
                         <div class="input_field">
-                            <select>
-                                <option data-display="Travel type">Travel type</option>
-                                <option value="1">Some option</option>
-                                <option value="2">Another option</option>
+                            <select class="searchType">
+                           
+                                @foreach ($typetour as $element)
+                                    <option data-display="{{ $element->name}}" value="{{ $element->id}}">{{ $element->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="search_btn">
-                            <button class="boxed-btn4 " type="submit">Search</button>
+                            <button class="boxed-btn4 searchTour" type="submit">Search</button>
                         </div>
                     </form>
                 </div>
@@ -103,7 +104,7 @@
                             <img src="{{$value['image']}}" alt="">
                         </div>
                         <div class="content">
-                            {{-- <p class="d-flex align-items-center">{{ $value['name'] }} <a href="travel_destination.html"> 07 Places</a> </p> --}}
+                            {{-- <p class="d-flex align-items-center">{{ $value['name'] }} <a href="seael_destination.html"> 07 Places</a> </p> --}}
                             <p class="d-flex align-items-center">
                                 <a href="{{ asset("type").'/'.$value->id }}">{{ $value['name'] }}</a>
                                 {{-- <a href="{{ asset("type").'/'.$value->id }}"> {{ count($value) }} Places</a> </p> --}}
@@ -349,7 +350,22 @@ $(document).ready(function() {
         window.location = url;
     });
 });
+$(document).on('submit','#searchTour-form', function(e){
+    e.preventDefault();
+    
+   
+    var name = $(".searchName").val();
+    var date = $(".searchDate").val();
 
+    var date = new Date(date);
+    date = date.toISOString().substring(0, 10) ;
+
+    var typetour = $(".searchType").find("option:selected").val();
+    var url = "/searchtour/"+ name + "/" + date + "/" + typetour ;
+     window.location = url;
+
+
+});
 $(document).on('click', '.load-more', function (){
     var page = $(this).attr('page');
 

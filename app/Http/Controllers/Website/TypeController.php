@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\TypeTour;
 use App\Tour;
-
+use Carbon\Carbon;
 class TypeController extends Controller
 {
 
@@ -19,10 +19,11 @@ class TypeController extends Controller
 	}
 
     public function index($idtour){
+        $now=Carbon::now()->toDateString();
     	$data = [
             
-            'tour'=>$this->tour->getTourByNum(4,$idtour),
-            
+            'placeStart' => $this->tour->getPlaceStart($now),
+            'typetour' => $idtour,
             'nameType'=>$this->typetour->getNameById($idtour),
             'type_tour'=>$this->typetour->get()->where('status',1),
     	];
