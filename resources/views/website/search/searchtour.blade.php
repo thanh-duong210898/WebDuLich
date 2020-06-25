@@ -44,7 +44,7 @@
                                         <div class="single_select">
                                             <h3 style="margin-bottom: 10px; font-family: -webkit-body; font-weight:  bolder;">Loại Tour</h3>
                                             <select name="TypeTour">
-{{-- 
+
                                                  @foreach ($type_tour as $element)
                                <option 
                                @if(isset($tour->tour_type_tour_id))
@@ -53,7 +53,7 @@
                                @endif 
                                @endif
                                value="{{$element->id}}">{{$element->name}}</option>
-                           @endforeach --}}
+                           @endforeach
                                               </select>
                                         </div>
                                     </div>

@@ -48,7 +48,13 @@ class Tour extends Model
         $value=tour::find($id);
         return $value;
     }
-   
+    public function getStarById(){
+        
+       
+       $more = tour::where()->orderby('star')->get()->desc();
+       return $more;
+    }
+
     public function getAll(){
         return $this->all();
     }
@@ -141,7 +147,11 @@ class Tour extends Model
 
     }
 
-    public function getPlaceStart($now){
-        return $this->select('place_start')->WhereDate('date_start','>=',$now)->distinct('place_start')->where('status',1)->get();
+    // public function getPlaceStart($now){
+    //     return $this->select('place_start')->WhereDate('date_start','>=',$now)->distinct('place_start')->where('status',1)->get();
+    // }
+    public function getPlaceStart(){
+        // return $this->select('place_start')->WhereDate('date_start','>=',$now)->distinct('place_start')->where('status',1)->get();
+        return $this->select('place_start')->distinct('place_start')->where('status',1)->get();
     }
 }

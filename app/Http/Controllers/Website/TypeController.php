@@ -22,10 +22,12 @@ class TypeController extends Controller
         $now=Carbon::now()->toDateString();
     	$data = [
             
-            'placeStart' => $this->tour->getPlaceStart($now),
+            'placeStart' => $this->tour->getPlaceStart(),
             'typetour' => $idtour,
             'nameType'=>$this->typetour->getNameById($idtour),
             'type_tour'=>$this->typetour->get()->where('status',1),
+            'ValueTour'=>$this->tour->getById($idtour),
+            // 'star'=>$this->tour->getStarById($idtour),
     	];
         return view("website.type_tour.index",$data);
     }

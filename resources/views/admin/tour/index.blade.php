@@ -74,7 +74,7 @@
             <div class="container-fluid">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Sản phẩm</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Tour</h6>
                     </div>
                     <div class="card-body">
                         <form role="form" id="editForm" method="post" enctype="multipart/form-data">
@@ -176,7 +176,7 @@
                                         <label class="col-lg-2 col-form-label form-control-label"></label>
                                         <div class="">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
-                                            <input type="submit" class="btn btn-primary" value="Lưu sản phẩm" />
+                                            <input type="submit" class="btn btn-primary" value="Lưu Tour" />
                                             <input type="hidden" value="" name="id">
                                         </div>
                                     
@@ -199,7 +199,7 @@
             <div class="container-fluid">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Sản phẩm</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Tour</h6>
                     </div>
                     <div class="card-body">
                         <form role="form" id="editForm" method="post" enctype="multipart/form-data">
@@ -307,53 +307,6 @@
         </div>
     </div>
 </div>
-{{-- <div id="ShowModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="container-fluid">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Sản phẩm</h6>
-                    </div>
-                    <div class="card-body">
-                        <form role="form" id="editForm" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row">
-                                <div class="col-lg-8 push-lg-4 personal-info">
-                                   
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group row">
-                                                <label class="col-lg-6 col-form-label form-control-label">Chi Tiết Tour</label>
-                                                <div class="col-lg-12">
-                                                    <textarea id="summernote1" name="description1" class="form-control" rows="4" cols="50"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        
-                                        <div class="col-lg-9">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                            
-                                            <input type="hidden" value="" name="id">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 pull-lg-7 text-xs-center">
-                                    <img style="" src="" class="m-x-auto img-fluid " alt="avatar" />
-                                    
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-
 
 @endsection
 @section('script')

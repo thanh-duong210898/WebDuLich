@@ -310,12 +310,21 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::post('special/post-form','SpecialController@postForm')->name('website.special.postForm');
 
         Route::get('type/{id}','TypeController@index')->name('website-type');
+
         Route::get('destination/{id}','DestinationController@index')->name('website.destination');
+        Route::post('destination/{id}','DestinationController@starratings')->name('website-rating');
+        
         Route::get('about','AboutController@index')->name('website.about');
+        Route::get('demo','AboutController@demo')->name('website.demo');
+
         Route::get('search','SearchController@index')->name('website.search');
         Route::get('filter','SearchController@filter')->name('website.filter');
         Route::get('filter','SearchController@filter')->name('website.filter');
+        Route::get('searchtour/{name}/{date}/{tourId}','SearchController@search')->name('searchtour');
 
+        Route::get('cart/{id}','CartController@index')->name('website.cart');
+        Route::post('cart/{id}','CartController@add')->name('website.cart-add');
+        Route::get('list','CartController@list')->name('website.list');
 
         Route::get('flight/{slug}','FlightController@getFlight')->name('website.flight');
 
@@ -323,7 +332,8 @@ Route::group(['prefix' => 'admin','middleware' => ['auth']], function() {
         Route::get('load-more-tour','HomeController@loadMoreTour')->name('loadMoreTour');
 
 
-        Route::get('searchtour/{name}/{date}/{tourId}','HomeController@search')->name('searchtour');
+        // Route::get('searchtour/{name}/{date}/{tourId}','HomeController@search')->name('searchtour');
+
     });
     
 

@@ -2865,7 +2865,7 @@ h3 {
 
 /* line 118, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_destination.scss */
 .destination_details_tour_info {
-  padding-bottom: 150px;
+
   padding-top: 70px;
   
   
@@ -6413,6 +6413,7 @@ h6 {
   }
 }
 
+
 /* line 1445, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_blog.scss */
 .comment-form .form-control {
   border: 1px solid #f0e9ff;
@@ -6749,6 +6750,53 @@ h6 {
 .blog_part .single-home-blog .card ul li span {
   margin-right: 10px;
   font-size: 12px;
+}
+
+.single_content{
+      color: #FF4A52;
+    font-size: larger;
+    font-weight: bolder;
+    font-family: auto;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.cus-num {
+    padding: 12px 15px 12px 15px;
+    background: #f4f4f4;
+    color: #212121;
+    font-weight: 500;
+    font-size: 16px;
+    border: 1px solid #ccc;
+}
+.frame-cus {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+
+    padding: 15px;
+}
+.total {
+    padding: 15px 0 0 0;
+    border-top: 1px solid #ccc;
+    margin-top: 15px;
+}
+.container_list{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.button_submit_add
+{
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.ratings{
+  color: orange;
+  font-size: 20px;
+  float: left;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

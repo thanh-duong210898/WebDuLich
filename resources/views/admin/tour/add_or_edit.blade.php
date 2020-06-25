@@ -1,8 +1,8 @@
 @extends('admin.layouts.app')
 @section('title','Tour '.$name)
 @section('style')
-<link href="vendor/summernote/summernote-lite.css" rel="stylesheet">
-<style>
+<link href="{{ asset('admin/vendor/summernote/summernote-lite.css') }}" rel="stylesheet">
+ --}}<style>
       .panel-heading{
          background: #f8f9fc;
       }
@@ -71,7 +71,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group row">
-                                                <label class="col-lg-2 col-form-label form-control-label">Số Ngày</label>
+                                                <label class="col-lg-2 col-form-label form-control-label">Thời Gian</label>
                                                 <div class="col-lg-4">                     
                                                    <input required="" class="form-control @error('date') is-invalid @enderror" type="text" name="date" value="{{isset($tour->price) ? $tour->price : old('name')}}" placeholder="Số Ngày" />
                                                 </div>
@@ -115,10 +115,11 @@
             </div>
             </div>
 
+
             <div class="col-lg-12  personal-info">
                <label class="col-lg-12 col-form-label form-control-label">Giới thiệu</label>
                <div class="col-lg-12">                     
-                        <textarea id="summernote" name="description" class="form-control" rows="4" cols="50" placeholder="Chi Tiết Về Tour Du Lịch">{{isset($tour->description) ? $tour->description : ''}}</textarea>
+                        <textarea id="summernote" name="description" class="form-control" rows="12" cols="50" placeholder="Chi Tiết Về Tour Du Lịch"></textarea>
                </div>
                <br>
                <div class="form-group row">
@@ -136,10 +137,15 @@
 </div>
 @endsection
 @section('script')
-<script src="js/upload_avatar.js"></script>
-<script src="vendor/summernote/summernote-lite.js"></script>
-   <script>
-      $('#summernote').summernote();
-      $('.note-icon-trash').trigger('click');
-   </script>
-@endsection
+<script src="{{ asset('admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+<script src="{{ asset('admin/js/upload_avatar.js') }}"></script>
+<script src="{{ asset('admin/vendor/summernote/summernote-lite.js') }}"></script>
+<script type="text/javascript">
+$('#summernote').summernote();
+$('.note-icon-trash').trigger('click');
+
+</script>
+
+@stop
