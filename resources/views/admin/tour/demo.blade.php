@@ -1,10 +1,10 @@
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
-
-<form method="post">
-  <textarea id="summernote" name="editordata"></textarea>
-</form>
-<script type="text/javascript">
-$('#summernote').summernote();
-</script>
+<?php
+$a =1;
+$chuoi1 = $a;
+$chuoi2 = "đào tạo lập trình viên chuyên nghiệp";
+//nối $chuoi1 và $chuoi2 bằng dấu chấm '.'
+$chuoi3 = $chuoi1."aaa";
+//in chuỗi 3 ra màn hình:
+echo $chuoi3;
+//kết quả: Devpro đào tạo lập trình viên chuyên nghiệp
+?>

@@ -48,16 +48,17 @@ class Tour extends Model
         $value=tour::find($id);
         return $value;
     }
-    public function getStarById(){
-        
-       
-       $more = tour::where()->orderby('star')->get()->desc();
-       return $more;
+    public function getByStar($id){
+        $value=tour::find($id);
+        $idtypetour= $value->tour_TypeTour_id;
+        $query = $this->where('tour_TypeTour_id',$idtypetour)->orderby('star','DESC')->get();
+       return $query;
     }
 
     public function getAll(){
         return $this->all();
     }
+
 
     public function getTourByNum($num ,$id){
         return $this->where('status',1)->where('tour_TypeTour_id',$id)->take($num)->get();

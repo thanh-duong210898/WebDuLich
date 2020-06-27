@@ -188,88 +188,60 @@
                 </div>
             </div>
             <div class="row">
+                <?php
+                $num =1;
+                ?>
+                @foreach($listtour as $value)
+                <?php
+                if($num>3)
+                    break;
+                $num++;
+                ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="single_place">
-                       
-                        
-
-
-                        <div class="thumb">
-                            <img src="img/place/1.png" alt="">
-                            <a href="#" class="prise">$500</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="#"><h3>California</h3></a>
-                            <p>United State of America</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(20 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">5 Days</a>
+                                <div class="thumb">
+                                     <img src="{{asset($value->image)}}" alt="">
+                                    <a href="{{ asset("destination").'/'.$value->id }}" class="prise">{{ number_format($value->price) }} VNĐ</a>
+                                </div>
+                                <div class="place_info">
+                                    <a href="{{ asset("destination").'/'.$value->id }}"><h3>{{$value->name}}</h3></a>
+                                    {{-- <p>{{ $nameType }}</p> --}}
+                                    <div class="rating_days d-flex justify-content-between">
+                                        <span class="d-flex justify-content-center align-items-center">
+                                             <div class="ratings"> 
+                                                <?php
+                                                 $star = $value->star;
+                                                 for($i=1;$i<=5;$i++)
+                                                 {
+                                                    
+                                                    if($i <= $star)
+                                                    {
+                                                ?>
+                                                        <span class="fa fa-star "></span>
+                                                <?php 
+                                                    }
+                                                    else 
+                                                    { ?>
+                                                        <span class="fa fa-star-o"></span>
+                                                <?php
+                                                    }
+                                                    
+                                                    
+                                                  }
+                                                 ?>
+                                                <a href="#">{{ $value->numratings }} Đánh giá</a>
+                                            </div>
+                                        </span>
+                                        <div class="days">
+                                            <i class="fa fa-clock-o"></i>
+                                            <a href="#">{{ $value->tour_date }}</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/2.png" alt="">
-                            <a href="#" class="prise">$500</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="#"><h3>Korola Megna</h3></a>
-                            <p>United State of America</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(20 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">5 Days</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="single_place">
-                        <div class="thumb">
-                            <img src="img/place/3.png" alt="">
-                            <a href="#" class="prise">$500</a>
-                        </div>
-                        <div class="place_info">
-                            <a href="#"><h3>London</h3></a>
-                            <p>United State of America</p>
-                            <div class="rating_days d-flex justify-content-between">
-                                <span class="d-flex justify-content-center align-items-center">
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i> 
-                                     <i class="fa fa-star"></i>
-                                     <a href="#">(20 Review)</a>
-                                </span>
-                                <div class="days">
-                                    <i class="fa fa-clock-o"></i>
-                                    <a href="#">5 Days</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                
             </div>
         </div>
     </div>

@@ -112,4 +112,6 @@ class HomeController extends Controller
         // dd($data);
         return view('website.search.searchtour',$data);
     }
+    
+
 }

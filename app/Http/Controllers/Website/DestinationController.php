@@ -24,6 +24,7 @@ class DestinationController extends Controller
             'img'=>$data->image,
             'name'=>$data->name,
             'ValueTour'=>$data,
+            'listtour'=>$this->tour->getByStar($idtour),
             // 'orderby'=>$data->orderby('star')->DESC;
     	];
         return view("website.destination_tour.index",$data);
